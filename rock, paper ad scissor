@@ -1,0 +1,63 @@
+import random
+import time
+print("***************************************************")
+print("---------------ROCK, PAPER, SCISSOR----------------")
+print("***************************************************")
+# guess = input("enter your move : ").lower()
+name = input("ENTRE YOUR NAME: ")
+time.sleep(1)
+print(f"WELCOME {name}")
+time.sleep(1)
+print("lets Start The Game")
+cm = ["rock", "paper", "scissor"]
+# computer = random.choice(cm)
+# print(computer)
+balance = 0
+is_running = True
+while is_running:
+
+    time.sleep(1)
+    guess = input("ENTRE YOUR MOVE: ").lower()
+
+    computer = random.choice(cm)
+
+
+    if guess == computer:
+        print(f"{guess} vs {computer}")
+        print("it's a tie")
+        print(" ")
+    elif guess == "rock" and computer == "scissor":
+        print(f"{guess} vs {computer}")
+        print("------YOU WON -------")
+        balance = balance + 1
+        print(" ")
+    elif guess == "rock" and computer == "paper":
+        print(f"{guess} vs {computer}")
+        print("-----------you lost-----------")
+        print(" ")
+    elif guess == "paper" and computer == "rock":
+        print(f"{guess} vs {computer}")
+        print("------YOU WON-------")
+        balance = balance + 1
+        print(" ")
+    elif guess == "paper" and computer == "scissor":
+        print(f"{guess} vs {computer}")
+        print("-----------you lost-----------")
+        print(" ")
+    elif guess == "scissor" and computer == "rock":
+        print(f"{guess} vs {computer}")
+        print("-----------you lost-----------")
+        print(" ")
+    elif guess == "scissor" and computer == "paper":
+        print(f"{guess} vs {computer}")
+        print("------YOU WON-------")
+        balance = balance + 1
+        print(" ")
+
+    elif guess == "end":
+        is_running == False
+        break
+        print(" ")
+print("***************************************************")
+print(f"YOUR SCORE IS: {balance}")
+print("***************************************************")
