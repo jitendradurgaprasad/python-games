@@ -1,0 +1,89 @@
+import random
+print("guess the words before he hangman appears")
+print("each incorrect guess, then hangman will appear")
+print("the lenth of the word will be displayed as  '_ _ _ _'")
+
+letters = ["lalu", "sumit", "narsimha", "jitendra", "abhishek", "yashwanth", "durga", "prasad"]
+
+hang_man = {0: ("   ",
+                "   ",
+                "   "),
+    
+            1: (" * ",
+                "   ",
+                "   "), 
+
+            2: (" * ",
+                " | ",
+                "   "),
+                
+            3: (" * ",
+                " |\\",
+                "   "),
+
+            4: (" * ",
+                "/|\\",
+                "   "),
+
+            5: (" * ",
+                "/|\\",
+                "  \\"),
+
+            6: (" * ",
+                "/|\\",
+                "/ \\"),
+}
+
+def display_man(wrong):
+    vall = hang_man[wrong]
+    for i in vall:
+        print(i)
+    # if wrong == 6:
+    #     is_running == False
+    # print(vall)
+    
+def fun():
+    for i in letters:
+        k = random.choice(letters)
+        print("your hint is ")
+        print("_" * len(k))
+        return k
+val = fun()
+# user = input("enter the digit:")
+is_running = True
+wrong = 0
+while is_running:
+    print(" ")
+    print("******************************************")
+    user = input("enter the guess:").lower()
+    print("******************************************")
+
+
+
+
+    if user == val:
+        print(" ")
+        print(" ")
+        print(" ")
+
+
+        print("******************************************")
+        print("CONGRATULATIONS YOU DID FOUND THE WORD BEFORE HANGMAN ")
+        print("******************************************")
+
+        is_running = False
+    elif user in val:
+        print(" ")
+        print(" ")
+        print("........................")
+        print("correct guess")
+        print("........................")
+    elif wrong == 6:
+        print("ooops hangman out!!!!!!!!!!")
+        print("game ended handman out")
+        print("_______________________________________")
+    else:
+        wrong += 1
+        j = display_man(wrong)
+        print(j, end=" ")
+        print("wrong answer")
